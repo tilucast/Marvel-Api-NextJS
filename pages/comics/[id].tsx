@@ -18,7 +18,7 @@ const ComicsPage = () => {
             return data.data.data.results[0]
         }).catch(error => error)
     
-    const {data, error}: SWRResponse<MarvelComics, any> = useSWR(`http://gateway.marvel.com/v1/public/comics/${id}`, fetcher)
+    const {data, error}: SWRResponse<MarvelComics, any> = useSWR(`https://gateway.marvel.com/v1/public/comics/${id}`, fetcher)
 
     if(!error && !data) return <p>Loading ...</p>
 

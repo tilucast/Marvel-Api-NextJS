@@ -14,7 +14,7 @@ export default function Home() {
   const [charactersDataState, setCharactersDataState] = useState<MarvelInterface>()
   
   const changePage = (event: ChangeEvent<HTMLInputElement>, value: number) => {
-      fetcher("http://gateway.marvel.com/v1/public/characters", 20, value === 1 ? 0 : value * 10)
+      fetcher("https://gateway.marvel.com/v1/public/characters", 20, value === 1 ? 0 : value * 10)
       setCurrentPage(value)
   }
 
