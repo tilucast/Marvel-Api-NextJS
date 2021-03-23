@@ -36,8 +36,6 @@ Motivos:
 
 ## Sobre o projeto
 Projeto com NextJS consumingo a API da Marvel Comics.
-Minha experiência com NextJS é limitada. Fiz alguns projetos, e um workshop de algumas horas, e é isso.
-Muito possívelmente estou comentendo erros sobre data fetching e organização do código.
 
 ------------------------------
 
