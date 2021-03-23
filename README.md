@@ -1,5 +1,6 @@
 ##### A NextJS project consuming the Marvel API
-![alt_text]('./assets/appbanner.jpg)
+<img href="./assets/appbanner.jpg"></img>
+
 
 ## Observações
 Olá. Tive uma experiência horrível com a [API em questão](https://developer.marvel.com/).
