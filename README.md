@@ -1,9 +1,15 @@
 ##### A NextJS project consuming the Marvel API
 <img src="./assets/appbanner.png"></img>
 
+[Projeto Live](https://marvel-api-next-js.vercel.app/)
+
 
 ## Observações
-Olá. Tive uma experiência horrível com a [API em questão](https://developer.marvel.com/).
+Olá. Minha experiência com NextJS é mínima. Fiz alguns projetos e esse workshop de umas 4 horas. Logo, meu código deve estar bem duvidoso, principalmente
+a parte de data fetching.
+Acredito que seja necessário dizer que, com mais tempo, seria capaz de implementar uma aplicação mais visualmente agradável.
+
+Tive uma experiência horrível com a [API em questão](https://developer.marvel.com/).
 Motivos: 
 - O site que hospeda a documentação está sofrendo com oscilações ou algo do tipo.
 - Muita autenticação para uma API tão simples como essa.
@@ -33,6 +39,36 @@ Projeto com NextJS consumingo a API da Marvel Comics.
 Minha experiência com NextJS é limitada. Fiz alguns projetos, e um workshop de algumas horas, e é isso.
 Muito possívelmente estou comentendo erros sobre data fetching e organização do código.
 
+------------------------------
+
+Acredito que a única parte da aplicação que necessite de explicações seja justamente a página inicial, com os personagens. Então vamos lá.
+
+A API em si não foi implementada com paginação, mas dá a opção de pular resultados, e de limitar os mesmos.
+Dada a limitação, implementei essa paginação em página única.
+
+```` setNumberOfPages((data?.data?.data?.total / 20).toFixed()) ```` 
+
+Dentro da função para buscar os dados, eu chamo essa função para atualizar o estado da quantidade de páginas. O total de personagens trazidos
+é de 1493 ou próximo disso. Decidi que cada página deveria ter 20 personagens, então bastei dividir os 1493 por 20, e como o resultado era
+float, arredondei para cima.
+
+
+O componente de paginação vem da lib [Material UI](https://material-ui.com/).
+```` 
+<PaginationComponent 
+    pages={{page: currentPage, countOfPages: Number(pages)}} 
+    handlePageChange={changePage}
+/>
+
+-----------
+
+const changePage = (event: ChangeEvent<HTMLInputElement>, value: number) => {
+    fetcher("https://gateway.marvel.com/v1/public/characters", 20, value === 1 ? 0 : value * 10)
+    setCurrentPage(value)
+}
+
+````
+Ao trocar de página, com onChange, chamo essa função que atualiza o estado dos personagens, e altero o estado da página atual.
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
