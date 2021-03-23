@@ -33,7 +33,7 @@ export default function Home() {
   }
 
   const charactersData = (limitQuery: number | string, offSetQuery: number | string) => {
-    const {data, error} =  useSWR("http://gateway.marvel.com/v1/public/characters", fetcher)
+    const {data, error} =  useSWR("https://gateway.marvel.com/v1/public/characters", fetcher)
 
     return {
       characters: charactersDataState,
