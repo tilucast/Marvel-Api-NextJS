@@ -1,5 +1,5 @@
 ##### A NextJS project consuming the Marvel API
-<img href="./assets/appbanner.jpg"></img>
+<img src="./assets/appbanner.jpg"></img>
 
 
 ## Observações
